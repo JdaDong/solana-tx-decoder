@@ -7,16 +7,12 @@
     },
     "dependencies": {
         "@coral-xyz/anchor": "^0.31.1",
-        "@project-serum/anchor": "^0.26.0",
         "@project-serum/borsh": "^0.2.5",
         "@solana/spl-token": "^0.4.14",
         "@solana/web3.js": "^1.99.0",
-        "bs58": "^6.0.0",
-        "buffer": "^6.0.3",
-        "sha.js": "^2.4.12"
+        "bs58": "^6.0.0"
     },
     "devDependencies": {
-        "@types/bs58": "^4.0.4",
         "ts-node": "^10.9.1",
         "typescript": "^5.4.5"
     }
