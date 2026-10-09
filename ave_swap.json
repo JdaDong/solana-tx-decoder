@@ -1,0 +1,485 @@
+{
+  "address": "AveBuBeMFTLJkB8pXLMBDw8jJS4cdexuWKyqQdZjUzEE",
+  "metadata": {
+    "name": "ave_swap",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "route_swap",
+      "docs": [
+        "Route swap.",
+        "",
+        "* Accounts:",
+        "0. [writable, signer] authority: authority account",
+        "1. [writable] input_token_account: input token account",
+        "2. [writable] output_token_account: output token account",
+        "3. output_token_mint: output token mint",
+        "4. token_program: token program",
+        "5. token_program_2022: token program 2022",
+        "6. associated_token_program: associated token program",
+        "7. memo_program: memo program",
+        "8. system_program: system program",
+        "",
+        "* Arguments:",
+        "* `steps`: an array of swap steps",
+        "* `amount_in`: amount in",
+        "* `wrap_and_unwrap_sol`: wrap and unwrap SOL, only effective when the input token is SOL or the output token is SOL",
+        "",
+        "* Steps:",
+        "* `min_amount_out`: minimum amount out of this step",
+        "* `swap_type`: swap type of this step with respective parameters",
+        "* `remaining_accounts_count`: remaining accounts count for this step",
+        "",
+        "* Remaining accounts:",
+        "* layout:",
+        "```ignore",
+        "[",
+        "program0, fixed_accounts0..., ?remaining_account0,  output_token_account0, output_token_mint0,",
+        "program1, fixed_accounts1..., ?remaining_account1,  output_token_account1, output_token_mint1,",
+        "program2, fixed_accounts2..., ?remaining_account2,  output_token_account2, output_token_mint2,",
+        "...,",
+        "programN, fixed_accountsN..., ?remaining_account2  // the final step has no output_token_account or output_token_mint",
+        "]",
+        "```",
+        "",
+        "0. program account: program accounts for each swap step, the count is equal to the length of the steps",
+        "1. fixed accounts for each swap step, they depend on the swap type:",
+        "* RaydiumAmm (fixed accounts = 18 - 4 = 14)",
+        "0. ~~token program~~ (use token_program in context)",
+        "1. [writable] amm",
+        "2. amm authority",
+        "3. [writable] amm open orders",
+        "4. [writable] amm target orders",
+        "5. [writable] pool coin token account",
+        "6. [writable] pool pc token account",
+        "7. [writable] serum program",
+        "8. [writable] serum market",
+        "9. [writable] serum bids",
+        "10. [writable] serum asks",
+        "11. [writable] serum event queue",
+        "12. [writable] serum coin vault account",
+        "13. [writable] serum pc vault account",
+        "14. [writable] serum vault signer",
+        "15. [writable] ~~input token account~~ (use last token account)",
+        "16. [writable] ~~output token account~~ (use step token account)",
+        "17. [writable, signer] ~~user owner~~ (use authority)",
+        "* RaydiumClmm (fixed accounts = 13 - 6 = 7)",
+        "0. [writable, signer] ~~payer~~ (use authority)",
+        "1. [writable] amm config",
+        "2. [writable] pool state",
+        "3. [writable] ~~input token account~~ (use last token account)",
+        "4. [writable] ~~output token account~~ (use step token account)",
+        "5. [writable] input vault",
+        "6. [writable] output vault",
+        "7. [writable] observation state",
+        "8. ~~token program~~ (use token_program in context)",
+        "9. ~~token program 2022~~ (use token_program_2022 in context)",
+        "10. ~~memo program~~ (use memo_program in context)",
+        "11. input vault mint",
+        "12. output vault mint",
+        "* RaydiumCpSwap(TODO)",
+        "* Orca (fixed accounts = 11 - 4 = 7)",
+        "0. [writable] whirlpool",
+        "1. ~~token program~~ (use token_program in context)",
+        "2. [writable, signer] ~~token authority~~ (use authority)",
+        "3. [writable] ~~token owner account a~~ (use last token account / step token account)",
+        "4. [writable] token vault a",
+        "5. [writable] ~~token owner account b~~ (use step token account / last token account)",
+        "6. [writable] token vault b",
+        "7. [writable] tick array 0",
+        "8. [writable] tick array 1",
+        "9. [writable] tick array 2",
+        "10. oracle",
+        "2. output token account for each step: token account for each swap output, the final step does not need this account.",
+        "> route_input_token_account -> [output_token_account_0 -> output_token_account_1 -> ... -> output_token_account_n] -> route_output_token_account",
+        "3. output token mint for each step, the final step does not need this account.",
+        ""
+      ],
+      "discriminator": [
+        114,
+        150,
+        13,
+        192,
+        140,
+        252,
+        221,
+        31
+      ],
+      "accounts": [
+        {
+          "name": "fee_payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "output_authority",
+          "writable": true
+        },
+        {
+          "name": "input_token_account",
+          "writable": true
+        },
+        {
+          "name": "input_token_mint",
+          "writable": true
+        },
+        {
+          "name": "output_token_account",
+          "writable": true
+        },
+        {
+          "name": "output_token_mint",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "token_program_2022",
+          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "memo_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent_sysvar",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "RouteSwapArguments"
+            }
+          }
+        },
+        {
+          "name": "wrap_and_unwrap_sol",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized"
+    },
+    {
+      "code": 6001,
+      "name": "OrderCreationIsDisabled",
+      "msg": "Order creation is disabled"
+    },
+    {
+      "code": 6002,
+      "name": "OrderAmountMustBeGreaterThanZero",
+      "msg": "Order amount must be greater than zero"
+    },
+    {
+      "code": 6003,
+      "name": "ExpireTimeMustBeGreaterThanCurrentTime",
+      "msg": "Expire time must be greater than current time"
+    },
+    {
+      "code": 6004,
+      "name": "OutputTokenAccountNotValid",
+      "msg": "Output token account not valid"
+    },
+    {
+      "code": 6005,
+      "name": "TransferAmountOverflow",
+      "msg": "Transfer amount overflow"
+    },
+    {
+      "code": 6006,
+      "name": "ProtocolFeeOverflow",
+      "msg": "Protocol fee overflow"
+    },
+    {
+      "code": 6007,
+      "name": "OrderIsNotOpen",
+      "msg": "Order is not open"
+    },
+    {
+      "code": 6008,
+      "name": "OrderIsExpired",
+      "msg": "Order is expired"
+    },
+    {
+      "code": 6009,
+      "name": "OrderCannotBeCancelled",
+      "msg": "Order cannot be cancelled"
+    },
+    {
+      "code": 6010,
+      "name": "OrderShouldBeCancelledOrFulfilledBeforeClosing",
+      "msg": "Order should be cancelled or fulfilled before closing"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidTokenMintAccount",
+      "msg": "Invalid token mint account"
+    },
+    {
+      "code": 6012,
+      "name": "InvalidSwapPool",
+      "msg": "Invalid swap pool"
+    },
+    {
+      "code": 6013,
+      "name": "InsufficientFulfillAmount",
+      "msg": "Insufficient fulfill amount"
+    },
+    {
+      "code": 6014,
+      "name": "CostMoreThanMakingAmount",
+      "msg": "Cross program invocation cost more than making amount"
+    },
+    {
+      "code": 6015,
+      "name": "TakeLessThanTakingAmount",
+      "msg": "Cross program invocation take less than taking amount"
+    },
+    {
+      "code": 6016,
+      "name": "PumpFunOnlySupportsNativeMintAsInputMintOrOutputMint",
+      "msg": "Pump.fun only supports native mint as input mint or output mint"
+    },
+    {
+      "code": 6017,
+      "name": "InputMintAndOutputMintAreTheSame",
+      "msg": "Input mint and output mint are the same"
+    },
+    {
+      "code": 6018,
+      "name": "SameAdmin",
+      "msg": "Same admin"
+    },
+    {
+      "code": 6019,
+      "name": "TheNewAdminMustBeAValidAccountWithANonZeroLamportBalance",
+      "msg": "The new admin must be a valid account with a non-zero lamport balance"
+    },
+    {
+      "code": 6020,
+      "name": "NoSwapStepsProvided",
+      "msg": "No swap steps provided"
+    },
+    {
+      "code": 6021,
+      "name": "UnsupportedSwapType",
+      "msg": "Unsupported swap type"
+    },
+    {
+      "code": 6022,
+      "name": "InsufficientNumberOfRemainingAccounts",
+      "msg": "Insufficient number of remaining accounts"
+    },
+    {
+      "code": 6023,
+      "name": "InvalidNumberOfOtherAccountsForStep",
+      "msg": "Invalid number of other accounts for step"
+    },
+    {
+      "code": 6024,
+      "name": "SwapStepDoesNotTakeEnoughOutputToken",
+      "msg": "Swap step does not take enough output token"
+    },
+    {
+      "code": 6025,
+      "name": "SwapStepDoesNotTakeMatchMinAmountOut",
+      "msg": "Swap step does not take enough output token to match min amount out"
+    },
+    {
+      "code": 6026,
+      "name": "InvalidAtaOwner",
+      "msg": "Invalid ata owner"
+    },
+    {
+      "code": 6027,
+      "name": "InvalidInputTokenAccount",
+      "msg": "Invalid input token account"
+    },
+    {
+      "code": 6028,
+      "name": "InvalidOutputTokenAccount",
+      "msg": "Invalid output token account"
+    },
+    {
+      "code": 6029,
+      "name": "NoUnwrapSolTempTokenAccountProvided",
+      "msg": "No unwrap sol temp token account provided"
+    },
+    {
+      "code": 6030,
+      "name": "InsufficientOrderLamports",
+      "msg": "Invalid unwrap sol temp token account"
+    },
+    {
+      "code": 6031,
+      "name": "PumpFunBondingCurveIsComplete",
+      "msg": "Pump.fun bonding curve is complete"
+    },
+    {
+      "code": 6032,
+      "name": "InputBalanceCostOverflow",
+      "msg": "Input balance cost overflow"
+    },
+    {
+      "code": 6033,
+      "name": "OutputBalanceReceivedOverflow",
+      "msg": "Output balance received overflow"
+    },
+    {
+      "code": 6034,
+      "name": "PumpFunBuyLamportNotEnoughForRent",
+      "msg": "Pumpfun bonding curve buy's lamports not enough for user_volume_accumaltor rent(1844400)"
+    },
+    {
+      "code": 6035,
+      "name": "PumpCashbackUserVolumeAccumulatorMustBeWritable",
+      "msg": "Pump cashback user volume accumulator must be writable"
+    },
+    {
+      "code": 6036,
+      "name": "InvalidSwapStepProgramId",
+      "msg": "swap step type doesn't match programId "
+    }
+  ],
+  "types": [
+    {
+      "name": "RouteSwapArguments",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amount_in",
+            "type": "u64"
+          },
+          {
+            "name": "steps",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "SwapStep"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "SwapStep",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "min_amount_out",
+            "type": "u64"
+          },
+          {
+            "name": "swap_type",
+            "type": {
+              "defined": {
+                "name": "SwapType"
+              }
+            }
+          },
+          {
+            "name": "remaining_accounts_count",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SwapType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "RaydiumAmm"
+          },
+          {
+            "name": "RaydiumClmm",
+            "fields": [
+              {
+                "name": "sqrt_price_limit",
+                "type": "u128"
+              }
+            ]
+          },
+          {
+            "name": "RaydiumCpSwap"
+          },
+          {
+            "name": "Orca",
+            "fields": [
+              {
+                "name": "sqrt_price_limit",
+                "type": "u128"
+              }
+            ]
+          },
+          {
+            "name": "MeteoraDlmm"
+          },
+          {
+            "name": "MeteoraDynamicAmm"
+          },
+          {
+            "name": "PumpFunAmm"
+          },
+          {
+            "name": "RaydiumLaunchLab",
+            "fields": [
+              {
+                "name": "share_fee_rate",
+                "type": "u64"
+              }
+            ]
+          },
+          {
+            "name": "PumpfunBondingCurve"
+          },
+          {
+            "name": "MeteoraDynamicAmmv2"
+          },
+          {
+            "name": "MeteoraDBC"
+          },
+          {
+            "name": "HeavenAmm"
+          },
+          {
+            "name": "Pinpet"
+          },
+          {
+            "name": "Rise"
+          }
+        ]
+      }
+    }
+  ]
+}
