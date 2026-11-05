@@ -118,6 +118,9 @@ async function main() {
     "numReadonlyUnsigned=",
     msg.header.numReadonlyUnsignedAccounts,
   );
+  if (msg.version === 1) {
+    console.log("   TransactionConfig:", formatArgs(msg.transactionConfig));
+  }
 
   console.log(
     "\n✍️  Signatures:",

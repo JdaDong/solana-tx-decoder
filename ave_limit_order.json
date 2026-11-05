@@ -212,7 +212,7 @@
           "name": "market_admin",
           "writable": true,
           "signer": true,
-          "address": "9dZTmGm8Akt1NLvmdHZw1udtsdUvvr7M27nKztDajzff"
+          "address": "2cNrTmXxJmU3av5bBdPxTcJn4fqXqFQXzq3cUVydYXp3"
         },
         {
           "name": "system_program",
@@ -751,1041 +751,6 @@
       ]
     },
     {
-      "name": "fulfill_order_via_meteora_dlmm",
-      "docs": [
-        "Fulfill an order via Meteora DLMM.",
-        ""
-      ],
-      "discriminator": [
-        231,
-        207,
-        27,
-        208,
-        131,
-        182,
-        105,
-        216
-      ],
-      "accounts": [
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "market",
-          "writable": true
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "order_maker_output_token_account",
-          "writable": true
-        },
-        {
-          "name": "meteora_program",
-          "address": "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo"
-        },
-        {
-          "name": "memo_program"
-        },
-        {
-          "name": "lb_pair",
-          "writable": true
-        },
-        {
-          "name": "bin_array_bitmap_extension",
-          "optional": true
-        },
-        {
-          "name": "reserve_x",
-          "writable": true
-        },
-        {
-          "name": "reserve_y",
-          "writable": true
-        },
-        {
-          "name": "token_x_mint"
-        },
-        {
-          "name": "token_y_mint"
-        },
-        {
-          "name": "oracle",
-          "writable": true
-        },
-        {
-          "name": "host_fee_in",
-          "optional": true
-        },
-        {
-          "name": "token_x_program"
-        },
-        {
-          "name": "token_y_program"
-        },
-        {
-          "name": "event_authority"
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "fulfill_order_via_meteora_dynamic_amm",
-      "docs": [
-        "Fulfill an order via Meteora Dynamic AMM.",
-        ""
-      ],
-      "discriminator": [
-        189,
-        162,
-        224,
-        212,
-        212,
-        37,
-        176,
-        180
-      ],
-      "accounts": [
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "market",
-          "writable": true
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "order_maker_output_token_account",
-          "writable": true
-        },
-        {
-          "name": "meteora_program",
-          "address": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB"
-        },
-        {
-          "name": "pool",
-          "writable": true
-        },
-        {
-          "name": "a_vault",
-          "writable": true
-        },
-        {
-          "name": "b_vault",
-          "writable": true
-        },
-        {
-          "name": "a_token_vault",
-          "writable": true
-        },
-        {
-          "name": "b_token_vault",
-          "writable": true
-        },
-        {
-          "name": "a_vault_lp_mint",
-          "writable": true
-        },
-        {
-          "name": "b_vault_lp_mint",
-          "writable": true
-        },
-        {
-          "name": "a_vault_lp",
-          "writable": true
-        },
-        {
-          "name": "b_vault_lp",
-          "writable": true
-        },
-        {
-          "name": "protocol_token_fee",
-          "writable": true
-        },
-        {
-          "name": "vault_program"
-        },
-        {
-          "name": "token_program"
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "fulfill_order_via_orca",
-      "docs": [
-        "Fulfill an order via Orca.",
-        "",
-        "* Accounts:",
-        "* `[signer]` Fulfiller",
-        "* `[writable]` Market account",
-        "* `[writable]` Order account",
-        "* `[]` Whirlpool program",
-        "* `[]` Token program",
-        "* `[writable]` Whirlpool",
-        "* `[writable]` Order input token vault",
-        "* `[writable]` Token vault A",
-        "* `[writable]` Order maker output token account",
-        "* `[writable]` Token vault B",
-        "* `[writable]` Tick array 0",
-        "* `[writable]` Tick array 1",
-        "* `[writable]` Tick array 2",
-        "* `[writable]` Oracle",
-        "",
-        "* Arguments:",
-        "* `sqrt_price_limit` The square price limit.",
-        ""
-      ],
-      "discriminator": [
-        240,
-        22,
-        111,
-        248,
-        102,
-        40,
-        133,
-        39
-      ],
-      "accounts": [
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "market",
-          "writable": true
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "token_program",
-          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
-        },
-        {
-          "name": "token_program_2022",
-          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
-        },
-        {
-          "name": "memo_program"
-        },
-        {
-          "name": "whirlpool",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "token_vault_a",
-          "writable": true
-        },
-        {
-          "name": "token_mint_a"
-        },
-        {
-          "name": "token_mint_b"
-        },
-        {
-          "name": "order_maker_output_token_account",
-          "writable": true
-        },
-        {
-          "name": "token_vault_b",
-          "writable": true
-        },
-        {
-          "name": "tick_array_0",
-          "writable": true
-        },
-        {
-          "name": "tick_array_1",
-          "writable": true
-        },
-        {
-          "name": "tick_array_2",
-          "writable": true
-        },
-        {
-          "name": "oracle",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  111,
-                  114,
-                  97,
-                  99,
-                  108,
-                  101
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "whirlpool"
-              }
-            ],
-            "program": {
-              "kind": "account",
-              "path": "whirlpool_program"
-            }
-          }
-        },
-        {
-          "name": "whirlpool_program",
-          "address": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
-        }
-      ],
-      "args": [
-        {
-          "name": "sqrt_price_limit",
-          "type": "u128"
-        }
-      ]
-    },
-    {
-      "name": "fulfill_order_via_pump_buy",
-      "docs": [
-        "Fulfill an order via Pump.fun (Buy).",
-        "",
-        "* Accounts:",
-        "* `[signer]` Fulfiller",
-        "* `[writable]` Market account",
-        "* `[writable]` Order account",
-        "* `[writable]` Order input token vault",
-        "* `[writable]` Order input mint",
-        "* `[writable]` Order output mint",
-        "* `[writable]` Order maker output token account",
-        "* `[writable]` WSOL temp account",
-        "* `[writable]` Global account",
-        "* `[writable]` Fee recipient account",
-        "* `[writable]` Bonding curve account",
-        "* `[writable]` Associated bonding curve account",
-        "* `[writable]` Event authority account",
-        "* `[writable]` Token program account",
-        "* `[writable]` Associated token program account",
-        "* `[writable]` System program account",
-        "* `[writable]` Rent account",
-        "* `[writable]` Pump.fun program account",
-        ""
-      ],
-      "discriminator": [
-        128,
-        198,
-        9,
-        100,
-        77,
-        238,
-        42,
-        143
-      ],
-      "accounts": [
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "maker",
-          "writable": true
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "market",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "order_input_mint",
-          "writable": true
-        },
-        {
-          "name": "order_output_mint",
-          "writable": true
-        },
-        {
-          "name": "order_maker_output_token_account",
-          "writable": true
-        },
-        {
-          "name": "wsol_temp",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "account",
-                "path": "order"
-              },
-              {
-                "kind": "account",
-                "path": "token_program"
-              },
-              {
-                "kind": "account",
-                "path": "order_input_mint"
-              }
-            ],
-            "program": {
-              "kind": "const",
-              "value": [
-                140,
-                151,
-                37,
-                143,
-                78,
-                36,
-                137,
-                241,
-                187,
-                61,
-                16,
-                41,
-                20,
-                142,
-                13,
-                131,
-                11,
-                90,
-                19,
-                153,
-                218,
-                255,
-                16,
-                132,
-                4,
-                142,
-                123,
-                216,
-                219,
-                233,
-                248,
-                89
-              ]
-            }
-          }
-        },
-        {
-          "name": "fee_recipient_authority",
-          "writable": true
-        },
-        {
-          "name": "fee_recipient_token_account",
-          "writable": true
-        },
-        {
-          "name": "global"
-        },
-        {
-          "name": "fee_recipient",
-          "writable": true
-        },
-        {
-          "name": "bonding_curve",
-          "writable": true
-        },
-        {
-          "name": "associated_bouding_curve",
-          "writable": true
-        },
-        {
-          "name": "event_authority"
-        },
-        {
-          "name": "token_program"
-        },
-        {
-          "name": "associated_token_program",
-          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
-        },
-        {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
-        },
-        {
-          "name": "creator_vault",
-          "writable": true
-        },
-        {
-          "name": "pump_fun_program",
-          "address": "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
-        },
-        {
-          "name": "global_volume_accumulator",
-          "writable": true
-        },
-        {
-          "name": "user_volume_accumulator",
-          "writable": true
-        },
-        {
-          "name": "fee_config"
-        },
-        {
-          "name": "fee_program"
-        },
-        {
-          "name": "bonding_curve_v2"
-        }
-      ],
-      "args": [
-        {
-          "name": "taking_amount",
-          "type": {
-            "option": "u64"
-          }
-        },
-        {
-          "name": "fee_bps",
-          "type": "u16"
-        }
-      ]
-    },
-    {
-      "name": "fulfill_order_via_pump_sell",
-      "docs": [
-        "Fulfill an order via Pump.fun (Sell).",
-        "",
-        "* Accounts:",
-        "* `[signer]` Fulfiller",
-        "* `[writable]` Market account",
-        "* `[writable]` Order account",
-        "* `[writable]` Order input token vault",
-        "* `[writable]` Order input mint",
-        "* `[writable]` Global account",
-        "* `[writable]` Fee recipient account",
-        "* `[writable]` Mint account",
-        "* `[writable]` Bonding curve account",
-        "* `[writable]` Associated bonding curve account",
-        "* `[writable]` Event authority account",
-        "* `[writable]` Token program account",
-        "* `[writable]` Associated token program account",
-        "* `[writable]` System program account",
-        "* `[writable]` Pump.fun program account",
-        ""
-      ],
-      "discriminator": [
-        254,
-        169,
-        253,
-        56,
-        17,
-        8,
-        145,
-        162
-      ],
-      "accounts": [
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "maker",
-          "writable": true
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "market",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "order_input_mint",
-          "writable": true
-        },
-        {
-          "name": "order_output_mint",
-          "writable": true
-        },
-        {
-          "name": "fee_recipient_authority",
-          "writable": true
-        },
-        {
-          "name": "global"
-        },
-        {
-          "name": "fee_recipient",
-          "writable": true
-        },
-        {
-          "name": "bonding_curve",
-          "writable": true
-        },
-        {
-          "name": "associated_bouding_curve",
-          "writable": true
-        },
-        {
-          "name": "event_authority"
-        },
-        {
-          "name": "token_program"
-        },
-        {
-          "name": "creator_vault",
-          "writable": true
-        },
-        {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
-        },
-        {
-          "name": "pump_fun_program",
-          "address": "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
-        },
-        {
-          "name": "fee_config"
-        },
-        {
-          "name": "fee_program"
-        },
-        {
-          "name": "pump_user_volume_accumulator",
-          "docs": [
-            "Required for cashback coins; passed to Pump as remaining_accounts[0] (writable)."
-          ],
-          "writable": true
-        },
-        {
-          "name": "bonding_curve_v2"
-        }
-      ],
-      "args": [
-        {
-          "name": "taking_amount",
-          "type": {
-            "option": "u64"
-          }
-        },
-        {
-          "name": "fee_bps",
-          "type": "u16"
-        }
-      ]
-    },
-    {
-      "name": "fulfill_order_via_raydium_amm",
-      "docs": [
-        "Fulfill an order via Raydium AMM.",
-        "",
-        "* Accounts:",
-        "* `[signer]` Fulfiller",
-        "* `[writable]` Market account",
-        "* `[writable]` Order account",
-        "* `[writable]` Order input token vault",
-        "* `[writable]` Order maker output token account",
-        "* `[writable]` Raydium AMM program",
-        "* `[writable]` Token program",
-        "* `[writable]` AMM",
-        "* `[writable]` AMM authority",
-        "* `[writable]` AMM open orders",
-        "* `[writable]` AMM target orders",
-        "* `[writable]` Pool coin token account",
-        "* `[writable]` Pool PC token account",
-        "* `[writable]` Serum program",
-        "* `[writable]` Serum market",
-        "* `[writable]` Serum bids",
-        "* `[writable]` Serum asks",
-        "* `[writable]` Serum event queue",
-        "* `[writable]` Serum coin vault account",
-        "* `[writable]` Serum PC vault account",
-        "* `[writable]` Serum vault signer",
-        ""
-      ],
-      "discriminator": [
-        115,
-        125,
-        252,
-        96,
-        210,
-        138,
-        247,
-        180
-      ],
-      "accounts": [
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "market",
-          "writable": true
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "order_maker_output_token_account",
-          "writable": true
-        },
-        {
-          "name": "raydium_amm_program",
-          "address": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8"
-        },
-        {
-          "name": "token_program"
-        },
-        {
-          "name": "amm",
-          "writable": true
-        },
-        {
-          "name": "amm_authority"
-        },
-        {
-          "name": "amm_open_orders",
-          "writable": true
-        },
-        {
-          "name": "amm_target_orders",
-          "writable": true
-        },
-        {
-          "name": "pool_coin_token_account",
-          "writable": true
-        },
-        {
-          "name": "pool_pc_token_account",
-          "writable": true
-        },
-        {
-          "name": "serum_program",
-          "writable": true
-        },
-        {
-          "name": "serum_market",
-          "writable": true
-        },
-        {
-          "name": "serum_bids",
-          "writable": true
-        },
-        {
-          "name": "serum_asks",
-          "writable": true
-        },
-        {
-          "name": "serum_event_queue",
-          "writable": true
-        },
-        {
-          "name": "serum_coin_vault_account",
-          "writable": true
-        },
-        {
-          "name": "serum_pc_vault_account",
-          "writable": true
-        },
-        {
-          "name": "serum_vault_signer",
-          "writable": true
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "fulfill_order_via_raydium_clmm",
-      "docs": [
-        "Fulfill an order via Raydium Concentrated Liquidity (CLMM) Pool.",
-        "",
-        "* Accounts:",
-        "* `raydium_clmm_program` - The Raydium CLMM program.",
-        "* `fulfiller` - The fulfiller of the order.",
-        "* `market` - The market account.",
-        "* `order` - The order to fulfill.",
-        "* `order_input_token_mint` - The mint of the input token of the order.",
-        "* `order_output_token_mint` - The mint of the output token of the order.",
-        "* `order_input_token_vault` - The vault of the input token of the order.",
-        "* `order_maker_output_token_account` - The account of the output token of the order.",
-        "* `amm_config` - The AMM config account.",
-        "* `pool_state` - The pool state account.",
-        "* `input_vault` - The input vault account.",
-        "* `output_vault` - The output vault account.",
-        "* `observation_state` - The observation state account.",
-        "* `token_program` - The token program.",
-        "* `token_program_2022` - The token program 2022.",
-        "* `memo_program` - The memo program.",
-        "",
-        "* Arguments:",
-        "* `sqrt_price_limit` - The square price limit.",
-        ""
-      ],
-      "discriminator": [
-        62,
-        247,
-        50,
-        86,
-        153,
-        208,
-        46,
-        145
-      ],
-      "accounts": [
-        {
-          "name": "raydium_clmm_program",
-          "address": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK"
-        },
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "market",
-          "writable": true
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_mint"
-        },
-        {
-          "name": "order_output_token_mint"
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "order_maker_output_token_account",
-          "writable": true
-        },
-        {
-          "name": "amm_config",
-          "writable": true
-        },
-        {
-          "name": "pool_state",
-          "writable": true
-        },
-        {
-          "name": "input_vault",
-          "writable": true
-        },
-        {
-          "name": "output_vault",
-          "writable": true
-        },
-        {
-          "name": "observation_state",
-          "writable": true
-        },
-        {
-          "name": "token_program",
-          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
-        },
-        {
-          "name": "token_program_2022",
-          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
-        },
-        {
-          "name": "memo_program"
-        }
-      ],
-      "args": [
-        {
-          "name": "sqrt_price_limit",
-          "type": "u128"
-        }
-      ]
-    },
-    {
-      "name": "fulfill_order_via_raydium_cp_swap",
-      "docs": [
-        "Fulfill an order via Raydium Standard AMM (CP-Swap, New)",
-        "",
-        "* Accounts:",
-        "* `[signer]` Fulfiller",
-        "* `[writable]` Market account",
-        "* `[writable]` Order account",
-        "* `[writable]` Raydium CP Swap program",
-        "* `[writable]` Fulfiller input token account",
-        "* `[writable]` Fulfiller output token account",
-        "* `[writable]` Order input token vault",
-        "* `[writable]` Order maker output token account",
-        "* `[writable]` Swap authority",
-        "* `[writable]` Swap AMM config",
-        "* `[writable]` Swap pool state",
-        "* `[writable]` Swap input vault",
-        "* `[writable]` Swap output vault",
-        "* `[writable]` Order input token program",
-        "* `[writable]` Order output token program",
-        "* `[writable]` Order input token mint",
-        "* `[writable]` Order output token mint",
-        "* `[writable]` Swap observation state",
-        ""
-      ],
-      "discriminator": [
-        252,
-        209,
-        223,
-        149,
-        82,
-        11,
-        71,
-        19
-      ],
-      "accounts": [
-        {
-          "name": "raydium_cp_swap_program",
-          "address": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C"
-        },
-        {
-          "name": "fulfiller",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "market"
-        },
-        {
-          "name": "order",
-          "writable": true
-        },
-        {
-          "name": "order_input_token_mint"
-        },
-        {
-          "name": "order_output_token_mint"
-        },
-        {
-          "name": "order_input_token_vault",
-          "writable": true
-        },
-        {
-          "name": "order_maker_output_token_account",
-          "writable": true
-        },
-        {
-          "name": "swap_authority",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  118,
-                  97,
-                  117,
-                  108,
-                  116,
-                  95,
-                  97,
-                  110,
-                  100,
-                  95,
-                  108,
-                  112,
-                  95,
-                  109,
-                  105,
-                  110,
-                  116,
-                  95,
-                  97,
-                  117,
-                  116,
-                  104,
-                  95,
-                  115,
-                  101,
-                  101,
-                  100
-                ]
-              }
-            ],
-            "program": {
-              "kind": "account",
-              "path": "raydium_cp_swap_program"
-            }
-          }
-        },
-        {
-          "name": "swap_amm_config",
-          "docs": [
-            "The factory state to read protocol fees"
-          ]
-        },
-        {
-          "name": "swap_pool_state",
-          "docs": [
-            "The program account of the pool in which the swap will be performed"
-          ],
-          "writable": true
-        },
-        {
-          "name": "swap_input_vault",
-          "docs": [
-            "The vault token account for input token"
-          ],
-          "writable": true
-        },
-        {
-          "name": "swap_output_vault",
-          "docs": [
-            "The vault token account for output token"
-          ],
-          "writable": true
-        },
-        {
-          "name": "order_input_token_program"
-        },
-        {
-          "name": "order_output_token_program"
-        },
-        {
-          "name": "swap_observation_state",
-          "docs": [
-            "The program account for the most recent oracle observation"
-          ],
-          "writable": true
-        }
-      ],
-      "args": []
-    },
-    {
       "name": "fulfill_order_via_route_swap",
       "docs": [
         "Fulfill an order via Route Swap.",
@@ -1806,7 +771,14 @@
         "",
         "* Arguments:",
         "* `steps`: an array of swap steps",
-        "* `amount_in`: amount in",
+        "* `taking_amount`: overrides the order's taking amount (minimum output) when set",
+        "* `is_fee_in`: charge the fee on the order input (`true`) or on the route output (`false`)",
+        "* `fee_bps`: fee in basis points",
+        "* `third_fee_bps`: third party fee in basis points, needs the third fee recipient accounts",
+        "* `fee_step`: optional, charge the fee on the output of an intermediate step instead,",
+        "see `FeeStep`. Omit it (legacy clients) or pass `None` to keep the `is_fee_in` behavior.",
+        "The intermediate fee is taken inside the route, so the order's taking amount is",
+        "still enforced on the net output.",
         "",
         "* Steps:",
         "* `min_amount_out`: minimum amount out of this step",
@@ -1939,6 +911,14 @@
         {
           "name": "third_fee_bps",
           "type": "u16"
+        },
+        {
+          "name": "fee_step",
+          "type": {
+            "defined": {
+              "name": "FeeStep"
+            }
+          }
         }
       ]
     },
@@ -2002,6 +982,13 @@
         "* `steps`: an array of swap steps",
         "* `amount_in`: amount in",
         "* `wrap_and_unwrap_sol`: wrap and unwrap SOL, only effective when the input token is SOL or the output token is SOL",
+        "* `is_fee_in`: charge the fee on the route input (`true`) or on the route output (`false`)",
+        "* `fee_bps`: fee in basis points",
+        "* `third_fee_bps`: third party fee in basis points, needs the third fee recipient accounts",
+        "* `fee_step`: optional, charge the fee on the output of an intermediate step instead,",
+        "see `FeeStep`. Omit it (legacy clients) or pass `None` to keep the `is_fee_in` behavior;",
+        "with `Some(k)`, `fee_recipient_token_account` must be the fee recipient's ATA of the",
+        "output mint of step `k`.",
         "",
         "* Steps:",
         "* `min_amount_out`: minimum amount out of this step",
@@ -2041,6 +1028,15 @@
         "15. [writable] ~~input token account~~ (use last token account)",
         "16. [writable] ~~output token account~~ (use step token account)",
         "17. [writable, signer] ~~user owner~~ (use authority)",
+        "* RaydiumAmmV2 (SwapBaseInV2, fixed accounts = 8 - 4 = 4)",
+        "0. ~~token program~~ (use token_program in context)",
+        "1. [writable] amm",
+        "2. amm authority",
+        "3. [writable] amm coin vault",
+        "4. [writable] amm pc vault",
+        "5. [writable] ~~input token account~~ (use last token account)",
+        "6. [writable] ~~output token account~~ (use step token account)",
+        "7. [writable, signer] ~~user owner~~ (use authority)",
         "* RaydiumClmm (fixed accounts = 13 - 6 = 7)",
         "0. [writable, signer] ~~payer~~ (use authority)",
         "1. [writable] amm config",
@@ -2187,6 +1183,138 @@
         {
           "name": "third_fee_bps",
           "type": "u16"
+        },
+        {
+          "name": "fee_step",
+          "type": {
+            "defined": {
+              "name": "FeeStep"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "route_swap_v2",
+      "docs": [
+        "Same as `route_swap` with an extra `fee_payer` signer at account index 0.",
+        "`fee_payer` pays rent / ATA creation (and is the pump `user` for pump steps);",
+        "`authority` funds the swap and receives the output. For platform-relayed swaps",
+        "where the user wallet holds no SOL.",
+        "",
+        "Rent goes back to whoever paid it: accounts the fee payer created for the route are closed",
+        "to the fee payer, the input token account the authority brought returns its rent to the",
+        "authority. With `wrap_and_unwrap_sol` the wrapped / unwrapped SOL is the authority's."
+      ],
+      "discriminator": [
+        81,
+        9,
+        102,
+        188,
+        56,
+        194,
+        164,
+        149
+      ],
+      "accounts": [
+        {
+          "name": "fee_payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "input_token_account",
+          "writable": true
+        },
+        {
+          "name": "input_token_mint",
+          "writable": true
+        },
+        {
+          "name": "output_token_account",
+          "writable": true
+        },
+        {
+          "name": "output_token_mint",
+          "writable": true
+        },
+        {
+          "name": "fee_recipient_token_account",
+          "writable": true
+        },
+        {
+          "name": "fee_recipient_authority"
+        },
+        {
+          "name": "third_fee_recipient_token_account",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "third_fee_recipient_authority",
+          "optional": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "token_program_2022",
+          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "memo_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent_sysvar",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "RouteSwapArguments"
+            }
+          }
+        },
+        {
+          "name": "wrap_and_unwrap_sol",
+          "type": "bool"
+        },
+        {
+          "name": "is_fee_in",
+          "type": "bool"
+        },
+        {
+          "name": "fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "third_fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "fee_step",
+          "type": {
+            "defined": {
+              "name": "FeeStep"
+            }
+          }
         }
       ]
     },
@@ -2230,19 +1358,6 @@
   ],
   "accounts": [
     {
-      "name": "AmmConfig",
-      "discriminator": [
-        218,
-        244,
-        33,
-        104,
-        203,
-        203,
-        43,
-        111
-      ]
-    },
-    {
       "name": "Market",
       "discriminator": [
         219,
@@ -2256,19 +1371,6 @@
       ]
     },
     {
-      "name": "ObservationState",
-      "discriminator": [
-        122,
-        174,
-        197,
-        53,
-        129,
-        9,
-        165,
-        132
-      ]
-    },
-    {
       "name": "Order",
       "discriminator": [
         134,
@@ -2279,32 +1381,6 @@
         86,
         28,
         51
-      ]
-    },
-    {
-      "name": "PoolState",
-      "discriminator": [
-        247,
-        237,
-        227,
-        245,
-        215,
-        195,
-        222,
-        70
-      ]
-    },
-    {
-      "name": "Whirlpool",
-      "discriminator": [
-        63,
-        149,
-        209,
-        12,
-        225,
-        128,
-        99,
-        9
       ]
     }
   ],
@@ -2508,95 +1584,29 @@
       "code": 6036,
       "name": "PinPetCooldownNotExpire",
       "msg": "Pinpet Trade cooldown period not expired, please try again later"
+    },
+    {
+      "code": 6037,
+      "name": "InvalidSwapProgram",
+      "msg": "Swap step program does not match the expected DEX program"
+    },
+    {
+      "code": 6038,
+      "name": "InvalidFeeStepIndex",
+      "msg": "Fee step index must point to an intermediate step"
+    },
+    {
+      "code": 6039,
+      "name": "InvalidFeeRecipientTokenAccount",
+      "msg": "Fee recipient token account is not the expected ATA"
+    },
+    {
+      "code": 6040,
+      "name": "InvalidFeeBps",
+      "msg": "Total fee bps exceeds 10000"
     }
   ],
   "types": [
-    {
-      "name": "AmmConfig",
-      "docs": [
-        "Holds the current owner of the factory"
-      ],
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "bump",
-            "docs": [
-              "Bump to identify PDA"
-            ],
-            "type": "u8"
-          },
-          {
-            "name": "disable_create_pool",
-            "docs": [
-              "Status to control if new pool can be create"
-            ],
-            "type": "bool"
-          },
-          {
-            "name": "index",
-            "docs": [
-              "Config index"
-            ],
-            "type": "u16"
-          },
-          {
-            "name": "trade_fee_rate",
-            "docs": [
-              "The trade fee, denominated in hundredths of a bip (10^-6)"
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "protocol_fee_rate",
-            "docs": [
-              "The protocol fee"
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "fund_fee_rate",
-            "docs": [
-              "The fund fee, denominated in hundredths of a bip (10^-6)"
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "create_pool_fee",
-            "docs": [
-              "Fee for create a new pool"
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "protocol_owner",
-            "docs": [
-              "Address of the protocol fee owner"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "fund_owner",
-            "docs": [
-              "Address of the fund fee owner"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "padding",
-            "docs": [
-              "padding"
-            ],
-            "type": {
-              "array": [
-                "u64",
-                16
-              ]
-            }
-          }
-        ]
-      }
-    },
     {
       "name": "Dex",
       "type": {
@@ -2628,6 +1638,57 @@
           },
           {
             "name": "MeteoraDynamicAmm"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeeStep",
+      "docs": [
+        "Optional trailing argument of `route_swap` and `fulfill_order_via_route_swap`: charge the",
+        "fee on the output of step `index` (an intermediate token) instead of on the route input /",
+        "output.",
+        "",
+        "When `index` is set:",
+        "* `fee_bps` / `third_fee_bps` are applied to the gross output of step `index`, i.e. its",
+        "output token account balance increase, before it becomes the input of the next step.",
+        "* `is_fee_in` is ignored: no fee is charged on the route input or output, so a route is",
+        "charged at most once.",
+        "* Like the input / output fee, nothing is charged when `fee_bps == 0` (the third fee",
+        "included).",
+        "* `fee_recipient_token_account` (and `third_fee_recipient_token_account`) must be the ATA",
+        "of the fee recipient for that intermediate mint, under the mint's token program",
+        "(Token or Token-2022); it is created if it does not exist.",
+        "* `min_amount_out` of step `index` is checked against the gross output, before the fee.",
+        "",
+        "Encoding: Borsh layout is identical to `Option<u8>`:",
+        "* no byte at all (EOF) -> `None`: clients built before this argument existed keep working",
+        "unchanged.",
+        "* `0x00` -> `None`: no intermediate fee, `is_fee_in` decides as before.",
+        "* `0x01, k` -> `Some(k)`: charge after step `k`.",
+        "",
+        "Errors: `InvalidFeeStepIndex` if `index` is not an intermediate step, `InvalidFeeBps` if",
+        "`fee_bps + third_fee_bps > 10000`, `InvalidFeeRecipientTokenAccount` if a fee recipient",
+        "token account is not the expected ATA or is the bridge account itself.",
+        "",
+        "Limitations (same as the input / output fee): the fee is moved with a plain",
+        "`transfer_checked`, so a Token-2022 intermediate mint with a transfer hook makes the",
+        "transaction fail (the hook's extra accounts are not passed), and with a transfer fee",
+        "extension the logged `fee` is the amount sent, the recipient receives less."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "index",
+            "docs": [
+              "0-based index of the step whose output is charged, `0..=steps.len() - 2`.",
+              "The last step is not allowed: its output is the route output, use `is_fee_in = false`.",
+              "`None`: no intermediate fee."
+            ],
+            "type": {
+              "option": "u8"
+            }
           }
         ]
       }
@@ -2767,102 +1828,6 @@
               "array": [
                 "u64",
                 10
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "Observation",
-      "docs": [
-        "The element of observations in ObservationState"
-      ],
-      "serialization": "bytemuckunsafe",
-      "repr": {
-        "kind": "rust",
-        "packed": true
-      },
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "block_timestamp",
-            "docs": [
-              "The block timestamp of the observation"
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "cumulative_token_0_price_x32",
-            "docs": [
-              "the cumulative of token0 price during the duration time, Q32.32, the remaining 64 bit for overflow"
-            ],
-            "type": "u128"
-          },
-          {
-            "name": "cumulative_token_1_price_x32",
-            "docs": [
-              "the cumulative of token1 price during the duration time, Q32.32, the remaining 64 bit for overflow"
-            ],
-            "type": "u128"
-          }
-        ]
-      }
-    },
-    {
-      "name": "ObservationState",
-      "serialization": "bytemuckunsafe",
-      "repr": {
-        "kind": "rust",
-        "packed": true
-      },
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "initialized",
-            "docs": [
-              "Whether the ObservationState is initialized"
-            ],
-            "type": "bool"
-          },
-          {
-            "name": "observation_index",
-            "docs": [
-              "the most-recently updated index of the observations array"
-            ],
-            "type": "u16"
-          },
-          {
-            "name": "pool_id",
-            "type": "pubkey"
-          },
-          {
-            "name": "observations",
-            "docs": [
-              "observation array"
-            ],
-            "type": {
-              "array": [
-                {
-                  "defined": {
-                    "name": "Observation"
-                  }
-                },
-                100
-              ]
-            }
-          },
-          {
-            "name": "padding",
-            "docs": [
-              "padding for feature update"
-            ],
-            "type": {
-              "array": [
-                "u64",
-                4
               ]
             }
           }
@@ -3156,171 +2121,6 @@
       }
     },
     {
-      "name": "PoolState",
-      "serialization": "bytemuckunsafe",
-      "repr": {
-        "kind": "rust",
-        "packed": true
-      },
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "amm_config",
-            "docs": [
-              "Which config the pool belongs"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "pool_creator",
-            "docs": [
-              "pool creator"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "token_0_vault",
-            "docs": [
-              "Token A"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "token_1_vault",
-            "docs": [
-              "Token B"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "lp_mint",
-            "docs": [
-              "Pool tokens are issued when A or B tokens are deposited.",
-              "Pool tokens can be withdrawn back to the original A or B token."
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "token_0_mint",
-            "docs": [
-              "Mint information for token A"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "token_1_mint",
-            "docs": [
-              "Mint information for token B"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "token_0_program",
-            "docs": [
-              "token_0 program"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "token_1_program",
-            "docs": [
-              "token_1 program"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "observation_key",
-            "docs": [
-              "observation account to store oracle data"
-            ],
-            "type": "pubkey"
-          },
-          {
-            "name": "auth_bump",
-            "type": "u8"
-          },
-          {
-            "name": "status",
-            "docs": [
-              "Bitwise representation of the state of the pool",
-              "bit0, 1: disable deposit(vaule is 1), 0: normal",
-              "bit1, 1: disable withdraw(vaule is 2), 0: normal",
-              "bit2, 1: disable swap(vaule is 4), 0: normal"
-            ],
-            "type": "u8"
-          },
-          {
-            "name": "lp_mint_decimals",
-            "type": "u8"
-          },
-          {
-            "name": "mint_0_decimals",
-            "docs": [
-              "mint0 and mint1 decimals"
-            ],
-            "type": "u8"
-          },
-          {
-            "name": "mint_1_decimals",
-            "type": "u8"
-          },
-          {
-            "name": "lp_supply",
-            "docs": [
-              "True circulating supply without burns and lock ups"
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "protocol_fees_token_0",
-            "docs": [
-              "The amounts of token_0 and token_1 that are owed to the liquidity provider."
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "protocol_fees_token_1",
-            "type": "u64"
-          },
-          {
-            "name": "fund_fees_token_0",
-            "type": "u64"
-          },
-          {
-            "name": "fund_fees_token_1",
-            "type": "u64"
-          },
-          {
-            "name": "open_time",
-            "docs": [
-              "The timestamp allowed for swap in the pool."
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "recent_epoch",
-            "docs": [
-              "recent epoch"
-            ],
-            "type": "u64"
-          },
-          {
-            "name": "padding",
-            "docs": [
-              "padding for future updates"
-            ],
-            "type": {
-              "array": [
-                "u64",
-                31
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
       "name": "RouteSwapArguments",
       "type": {
         "kind": "struct",
@@ -3456,137 +2256,18 @@
                 "type": "u128"
               }
             ]
-          }
-        ]
-      }
-    },
-    {
-      "name": "Whirlpool",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "whirlpools_config",
-            "type": "pubkey"
           },
           {
-            "name": "whirlpool_bump",
-            "type": {
-              "array": [
-                "u8",
-                1
-              ]
-            }
+            "name": "RaydiumAmmV2"
           },
           {
-            "name": "tick_spacing",
-            "type": "u16"
-          },
-          {
-            "name": "tick_spacing_seed",
-            "type": {
-              "array": [
-                "u8",
-                2
-              ]
-            }
-          },
-          {
-            "name": "fee_rate",
-            "type": "u16"
-          },
-          {
-            "name": "protocol_fee_rate",
-            "type": "u16"
-          },
-          {
-            "name": "liquidity",
-            "type": "u128"
-          },
-          {
-            "name": "sqrt_price",
-            "type": "u128"
-          },
-          {
-            "name": "tick_current_index",
-            "type": "i32"
-          },
-          {
-            "name": "protocol_fee_owed_a",
-            "type": "u64"
-          },
-          {
-            "name": "protocol_fee_owed_b",
-            "type": "u64"
-          },
-          {
-            "name": "token_mint_a",
-            "type": "pubkey"
-          },
-          {
-            "name": "token_vault_a",
-            "type": "pubkey"
-          },
-          {
-            "name": "fee_growth_global_a",
-            "type": "u128"
-          },
-          {
-            "name": "token_mint_b",
-            "type": "pubkey"
-          },
-          {
-            "name": "token_vault_b",
-            "type": "pubkey"
-          },
-          {
-            "name": "fee_growth_global_b",
-            "type": "u128"
-          },
-          {
-            "name": "reward_last_updated_timestamp",
-            "type": "u64"
-          },
-          {
-            "name": "reward_infos",
-            "type": {
-              "array": [
-                {
-                  "defined": {
-                    "name": "WhirlpoolRewardInfo"
-                  }
-                },
-                3
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "WhirlpoolRewardInfo",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "mint",
-            "type": "pubkey"
-          },
-          {
-            "name": "vault",
-            "type": "pubkey"
-          },
-          {
-            "name": "authority",
-            "type": "pubkey"
-          },
-          {
-            "name": "emissions_per_second_x64",
-            "type": "u128"
-          },
-          {
-            "name": "growth_global_x64",
-            "type": "u128"
+            "name": "PancakeClmm",
+            "fields": [
+              {
+                "name": "sqrt_price_limit",
+                "type": "u128"
+              }
+            ]
           }
         ]
       }

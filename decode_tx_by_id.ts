@@ -104,7 +104,7 @@ async function main() {
   console.log("Fetching transaction:", txid);
 
   const tx = await conn.getTransaction(txid, {
-    maxSupportedTransactionVersion: 0,
+    maxSupportedTransactionVersion: 1,
     commitment: "confirmed",
   });
 
@@ -129,6 +129,9 @@ async function main() {
     "numReadonlyUnsigned=",
     msg.header.numReadonlyUnsignedAccounts,
   );
+  if (msg.version === 1) {
+    console.log("   TransactionConfig:", formatArgs(msg.transactionConfig));
+  }
 
   // Fetch ALTs
   const altAccs: AddressLookupTableAccount[] = [];

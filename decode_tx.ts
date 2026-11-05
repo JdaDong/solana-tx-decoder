@@ -133,7 +133,7 @@ function getAccountMetaWithIdl(
 (async () => {
   const conn = new Connection("https://api.mainnet-beta.solana.com");
   const coder = new BorshCoder(idl as Idl);
-  const buf = Buffer.from(BASE64_TX, "base64");
+  const buf = Buffer.from(process.argv[2] ?? BASE64_TX, "base64");
   console.log("start decode");
   const vtx = VersionedTransaction.deserialize(buf);
 
@@ -143,6 +143,13 @@ function getAccountMetaWithIdl(
     "✅ 签名列表:",
     vtx.signatures.map((s) => bs58.encode(s)),
   );
+  console.log("✅ 交易版本:", vtx.message.version);
+  if (vtx.message.version === 1) {
+    console.log(
+      "✅ transactionConfig:",
+      formatArgs((vtx.message as any).transactionConfig),
+    );
+  }
 
   const altAccs: AddressLookupTableAccount[] = [];
 
@@ -178,7 +185,10 @@ function getAccountMetaWithIdl(
     console.log("instruction data: ", data);
     const data58 = base58.encode(data);
     console.log("instruction data58: ", data58);
-    const decoded = coder.instruction.decode(data);
+    let decoded: ReturnType<typeof coder.instruction.decode> = null;
+    try {
+      decoded = coder.instruction.decode(data);
+    } catch {}
     if (!decoded) {
       console.log(`❌ 第 ${idx} 条指令无法解码`);
       return;
